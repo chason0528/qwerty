@@ -1,0 +1,49 @@
+<view>
+	<view class="top">
+			<view class="avatar-box">
+				<image src="/images/xhs.png" mode="scaleToFill" class="avatar">
+					</image>
+          <view class='word'>点击登录</view>
+			</view>
+  </view>
+</view>
+
+<view class="order-bar">
+  <view class="item" bindtap="gotoOrderList" data-type="0">
+  <image src="/images/order.png" class="icon"  background-size="cover"></image>
+  <text class="word">我的订单</text>
+  </view>
+  <view class="item" bindtap="gotoOrderList" data-type="1">
+  <image src="/images/bill.png" class="icon" background-size="cover">
+  </image>
+  <text class="word">待付款</text>
+  </view>
+  <view class="item" bindtap="gotoOrderList" data-type="2">
+  <image src="/images/delivery.png" class="icon" background-size="cover"></image>
+  <text class="word">待收货</text>
+  </view>
+  <view class="item" bindtap="gotoOrderList" data-type="3">
+  <image src="/images/finished.png"class="icon"  background-size="cover"></image>
+  <text class="word">已完成</text>
+  </view>
+
+</view>
+  
+<view class="line"></view>
+
+
+
+
+<block wx:for="{{userListInfo}}">
+        <view class="weui_cell">
+            <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> {{item.text}} </view>
+            </view>
+            <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
+            <image src="/images/arrow_right.png" class="with_arrow"></image>
+        </view>
+</block>
+
+<view class="botom-area">
+</view>
