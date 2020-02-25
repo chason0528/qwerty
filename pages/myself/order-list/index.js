@@ -7,6 +7,7 @@ Page({
     currentType: 0,
     tabClass: ["", "", "", "", ""]
   },
+  
   statusTap: function(e) {
     const curType = e.currentTarget.dataset.index;
     this.data.currentType = curType
@@ -15,19 +16,24 @@ Page({
     });
     this.onShow();
   },
+
   cancelOrderTap: function(e) {
 
   },
+
   refundApply (e) {
     // 申请售后
 
   },
+
   toPayTap: function(e) {
     // 防止连续点击--开始
     
   },
+
   _toPayTap: function (orderId, money){
   },
+
   onLoad: function(options) {
     if (options && options.type) {
       if (options.type == 99) {

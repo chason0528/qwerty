@@ -35,12 +35,12 @@
 
 
 <block wx:for="{{userListInfo}}">
-        <view class="weui_cell">
+        <view class="weui_cell" bindtap="gotoPageByIndex" data-iid="{{index}}">
             <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
             <view class="weui_cell_bd">
                 <view class="weui_cell_bd_p"> {{item.text}} </view>
             </view>
-            <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
+            <view wx:if="{{item.unreadNum > 0}}" class="badge">{{item.unreadNum}}</view>
             <image src="/images/arrow_right.png" class="with_arrow"></image>
         </view>
 </block>

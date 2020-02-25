@@ -9,24 +9,28 @@ Page({
     userInfo: {},
     
     userListInfo: [{
-      icon: '../../images/iconfont-card.png',
+      icon: '/images/iconfont-card.png',
       text: '我的代金券',
-      isunread: true,
-      unreadNum: 2
+      unreadNum: 3,
+      path:'./coupons/index'
     }, {
-      icon: '../../images/iconfont-icontuan.png',
+      icon: '/images/iconfont-icontuan.png',
       text: '我的拼团',
-      isunread: true,
       unreadNum: 1
     }, {
-      icon: '../../images/iconfont-shouhuodizhi.png',
-      text: '收货地址管理'
+      icon: '/images/iconfont-shouhuodizhi.png',
+      text: '收货地址管理',
+      unreadNum: 0
     }, {
-      icon: '../../images/iconfont-kefu.png',
-      text: '联系客服'
+      icon: '/images/iconfont-kefu.png',
+      text: '联系客服',
+      unreadNum: 0
+
     }, {
-      icon: '../../images/iconfont-help.png',
-      text: '常见问题'
+      icon: '/images/iconfont-help.png',
+      text: '常见问题',
+      unreadNum: 0
+
     }]
   },
 
@@ -98,8 +102,22 @@ Page({
   },
 
 
+  
 
+  gotoPageByIndex: function (e) {
+    var iid = e.currentTarget.dataset.iid
 
+    var uli = this.data.userListInfo
+    uli[iid].unreadNum = 0
+  
+    wx.navigateTo({
+      url: uli[iid]['path'],
+    })
+
+    this.setData({
+      userListInfo: uli,
+    })
+  },
   gotoOrderList: function(e) {
     wx.navigateTo({
       url: "./order-list/index?type=" + e.currentTarget.dataset.type
