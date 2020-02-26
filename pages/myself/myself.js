@@ -109,15 +109,15 @@ Page({
 
     var uli = this.data.userListInfo
     uli[iid].unreadNum = 0
-  
-    wx.navigateTo({
-      url: uli[iid]['path'],
-    })
-
     this.setData({
       userListInfo: uli,
     })
+
+    wx.navigateTo({
+      url: uli[iid]['path'],
+    })
   },
+
   gotoOrderList: function(e) {
     wx.navigateTo({
       url: "./order-list/index?type=" + e.currentTarget.dataset.type
