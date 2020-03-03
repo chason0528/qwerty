@@ -1,9 +1,12 @@
 <view>
-	<view class="top">
+	<view class="top" >
 			<view class="avatar-box">
+      <block wx:if="check">
 				<image src="/images/xhs.png" mode="scaleToFill" class="avatar">
-					</image>
-          <view class='word'>点击登录</view>
+				</image>
+        <view class='word'>点击登录</view>      
+      </block>
+
 			</view>
   </view>
 </view>

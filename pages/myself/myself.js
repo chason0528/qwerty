@@ -1,12 +1,14 @@
 // pages/myself/myself.js
-
+const WXAPI = require('apifm-wxapi')
+const AUTH = require('../../utils/auth')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
+    wxlogin :false,
+
     
     userListInfo: [{
       icon: '/images/iconfont-card.png',
@@ -41,7 +43,7 @@ Page({
     wx.setNavigationBarTitle({
       title:"个人中心"
     })
-    var that = this
+    const that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
       //更新数据
@@ -63,7 +65,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      const _this = this
+      this.setData
   },
 
   /**
@@ -94,15 +97,21 @@ Page({
 
   },
 
-  /**
+  /*
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
   },
 
 
-  
+  doLogin:function(){
+    AUTH.doLogin()
+  },
+
+  checkLogin:function(){
+    return AUTH.checkHasLogined() 
+  },
+
 
   gotoPageByIndex: function (e) {
     var iid = e.currentTarget.dataset.iid
@@ -123,4 +132,6 @@ Page({
       url: "./order-list/index?type=" + e.currentTarget.dataset.type
     })
   },
+
+  
 })
