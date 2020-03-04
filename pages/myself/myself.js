@@ -105,7 +105,7 @@ Page({
 
 
   doLogin:function(){
-    AUTH.doLogin()
+    AUTH.login()
   },
 
   checkLogin:function(){
