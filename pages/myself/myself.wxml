@@ -1,3 +1,5 @@
+
+
 <view>
 	<view class="top" >
 			<view class="avatar-box">
@@ -33,9 +35,6 @@
 </view>
   
 <view class="line"></view>
-
-
-
 
 <block wx:for="{{userListInfo}}">
         <view class="weui_cell" bindtap="gotoPageByIndex" data-iid="{{index}}">

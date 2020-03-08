@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    wxlogin :false,
+    showLoginDialog :false,
 
     
     userListInfo: [{
@@ -105,7 +105,7 @@ Page({
 
 
   doLogin:function(){
-    AUTH.login()
+    
   },
 
   checkLogin:function(){

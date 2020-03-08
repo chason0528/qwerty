@@ -1,8 +1,12 @@
-
+page{
+  background: #F4F4F4;
+}
 .avatar-box{
+  background: white;
 	flex: 1 1 30%;
   }
 .top {
+  background: white;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -20,6 +24,7 @@
 
 
 .order-bar{
+  background: white;
   width:100%;
   height:100%;
   display: flex;
@@ -83,6 +88,7 @@
   color: #333;
 }
 .weui_cell{
+    background: white;
     position: relative;
     display: flex;
     padding: 15px;
