@@ -1,4 +1,0 @@
-<text 
-	class="grace-check-btn {{checked ? 'grace-check-checked' : ''}}" 
-	style="font-size:{{size+'rpx'}}; line-height:{{size+'rpx'}}; color : {{checked ? checkedColor : color}};" 
-	bindtap="changeStatus"></text>

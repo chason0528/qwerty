@@ -1,5 +1,5 @@
 <template name="apifmLogin">
-  <view class="apifmLogin" hidden="{{showLoginDialog}}">
+  <view class="apifmLogin" bindtap="fucksbwx" hidden="{{showlogindialog}}">
     <view class="s-b">
       <view class="s-l-b">
         <image src="/images/nologin.png" />

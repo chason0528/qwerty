@@ -2,12 +2,19 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 99999999999;
 }
 
+.apifmLogin .test{
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
 .apifmLogin .s-b {
   width: 70%;
   margin: 0 auto;

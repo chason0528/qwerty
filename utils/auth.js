@@ -40,6 +40,9 @@ async function login(page){
         if (res.code == 10000) {
           // 去注册
           //_this.register(page)
+          wx.showToast({
+            title: '尚未注册',
+          })
           return;
         }
         if (res.code != 0) {

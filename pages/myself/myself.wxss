@@ -1,7 +1,16 @@
+@import "/template/login/index.wxss";
+
 page{
   background: #F4F4F4;
 }
+
+page,view,image,input {
+  display: block;
+  box-sizing: border-box;
+}
+
 .avatar-box{
+  margin: 0 auto;
   background: white;
 	flex: 1 1 30%;
   }

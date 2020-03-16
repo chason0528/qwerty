@@ -7,9 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showLoginDialog :false,
+    //这个值只是代表是否出现登录框，与真实登录状态无关
+    //真实登录状态还是需要联网监测的
+    isLogin: true,
 
-    
+
     userListInfo: [{
       icon: '/images/iconfont-card.png',
       text: '我的代金券',
@@ -65,10 +67,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      const _this = this
-      this.setData
+    const _this = this
+    AUTH.checkHasLogined().then(isLogined => {
+      this.setData({
+        isLogin: isLogined
+      })
+      if (isLogined) {
+        _this.getUserApiInfo();
+       // _this.getUserAmount();
+      }
+    })
+     
   },
 
+
+  getUserApiInfo: function () {
+    var that = this;
+    WXAPI.userDetail(wx.getStorageSync('token')).then(function (res) {
+      if (res.code == 0) {
+        let _data = {}
+        _data.apiUserInfoMap = res.data
+        if (res.data.base.mobile) {
+          _data.userMobile = res.data.base.mobile
+        }
+        that.setData(_data);
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -104,13 +129,16 @@ Page({
   },
 
 
-  doLogin:function(){
-    
+
+
+  showLoginDialog:function(){
+    this.setData({isLogin:false})
   },
 
-  checkLogin:function(){
-    return AUTH.checkHasLogined() 
+  dismissLoginDialog:function(){
+    this.setData({isLogin:true})
   },
+
 
 
   gotoPageByIndex: function (e) {
@@ -133,5 +161,15 @@ Page({
     })
   },
 
-  
+  processLogin(e) {
+    if (!e.detail.userInfo) {
+      wx.showToast({
+        title: '已取消',
+        icon: 'none',
+      })
+      return;
+    }
+    AUTH.register(this);
+  },
+
 })

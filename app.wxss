@@ -1,6 +1,6 @@
 /**app.wxss**/
-@import "graceUI/graceUI.wxss";
-@import "graceUI/graceIcons.wxss";
+@import 'weui/weui.wxss';
+
 .container {
   height: 100%;
   display: flex;

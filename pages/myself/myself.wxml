@@ -1,14 +1,20 @@
-
-
 <view>
 	<view class="top" >
 			<view class="avatar-box">
-      <block wx:if="check" >
-				<image src="/images/xhs.png" mode="scaleToFill" class="avatar">
-				</image>
-        <view class='word' bindtap="doLogin">点击登录</view>      
-      </block>
 
+        <block wx:if="{{apiUserInfoMap}}">
+        
+		    <image wx:if="{{apiUserInfoMap.base.avatarUrl}}" class="avatar" mode="scaleToFill"
+        src="{{ apiUserInfoMap.base.avatarUrl }}">
+        </image>
+        <view class='word'>{{apiUserInfoMap.base.nick}}</view>      
+
+        </block>
+        <block wx:else>
+          <image src="/images/xhs.png" bindtap="showLoginDialog" mode="scaleToFill" class="avatar">
+          </image>
+          <view class='word' bindtap="showLoginDialog">点击登录</view>      
+        </block>
 			</view>
   </view>
 </view>
@@ -47,5 +53,23 @@
         </view>
 </block>
 
-<view class="botom-area">
-</view>
+<view class="botom-area"></view>
+
+<view class="apifmLogin" hidden="{{isLogin}}">
+    <view class="s-b">
+      <view class="s-l-b">
+        <image src="/images/nologin.png" />
+        <text>授权登录</text>
+      </view>
+      <view class="s-t-b">
+        <view class="s-t-i">
+          <text>·</text>请授权小程序登录</view>
+        <view class="s-t-i">
+          <text>·</text>我们不会公布您的这些信息</view>
+        <view class="s-t-i">
+          <text>·</text>只是为了给您提供更好的服务</view>
+      </view>
+      <button class="l" open-type="getUserInfo" bindgetuserinfo="processLogin">允许</button>
+      <button class="c" bindtap="dismissLoginDialog" type="default">暂不登录</button>
+    </view>
+  </view>
