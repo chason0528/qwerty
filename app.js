@@ -5,15 +5,8 @@ App({
   onLaunch: function () {
     WXAPI.init('qwertyzqy')
     // 获取用户信息
-
-    
-    
-    
-    
-    
     AUTH.checkHasLogined().then(isLogined => {
       if (!isLogined) {
-        AUTH.login()
       }
     })
   },
@@ -21,3 +14,4 @@ App({
     userInfo: null
   }
 })
+

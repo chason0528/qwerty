@@ -3,7 +3,6 @@
 			<view class="avatar-box">
 
         <block wx:if="{{apiUserInfoMap}}">
-        
 		    <image wx:if="{{apiUserInfoMap.base.avatarUrl}}" class="avatar" mode="scaleToFill"
         src="{{ apiUserInfoMap.base.avatarUrl }}">
         </image>

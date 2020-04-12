@@ -10,8 +10,6 @@ Page({
     //这个值只是代表是否出现登录框，与真实登录状态无关
     //真实登录状态还是需要联网监测的
     isLogin: true,
-
-
     userListInfo: [{
       icon: '/images/iconfont-card.png',
       text: '我的代金券',
@@ -29,12 +27,10 @@ Page({
       icon: '/images/iconfont-kefu.png',
       text: '联系客服',
       unreadNum: 0
-
     }, {
       icon: '/images/iconfont-help.png',
       text: '常见问题',
       unreadNum: 0
-
     }]
   },
 
@@ -43,7 +39,7 @@ Page({
    */
   onLoad: function () {
     wx.setNavigationBarTitle({
-      title:"个人中心"
+      title:"个人中心",
     })
     const that = this
     //调用应用实例的方法获取全局数据
